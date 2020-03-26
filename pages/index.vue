@@ -7,7 +7,7 @@
         proxycrack
       </h1>
       <h2 class="subtitle">
-        Create proxy-card of your favorites card games
+        Create proxy-card of your favorites games
       </h2>
     </div>
 
@@ -25,8 +25,10 @@
         Row 1
       </div>
 
-      <div>
-        Row 2
+      <div
+        id="frame-divination-card"
+      >
+        Hello Word
       </div>
     </div>
   </div>
@@ -43,13 +45,14 @@ export default {
   @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
 */
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+
+#frame-divination-card {
+  background-image: url('/poe/divination/divination_card_frame.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  min-width: 440px;
+  min-height: 668px;
 }
 
 .title {
@@ -68,9 +71,5 @@ export default {
   color: #526488;
   word-spacing: 5px;
   padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
 }
 </style>
