@@ -26,9 +26,34 @@
       </div>
 
       <div
-        id="frame-divination-card"
+        id="wrapper-divination-card"
+        style="background-image: url(https://gamepedia.cursecdn.com/pathofexile_gamepedia/c/c8/Alone_in_the_Darkness_card_art.png?version=4759af65641ef85601300dd68fc30da2);"
       >
-        Hello Word
+        <div
+          id="frame-divination-card"
+          class="flex flex-col items-center"
+        >
+          <div
+            class="my-4 text-lg text-divination-title"
+          >
+            {{ divination.title }}
+          </div>
+          <div
+            class="mx-16 mt-64 self-start text-base text-white"
+          >
+            {{ divination.stack }}
+          </div>
+          <div
+            class="my-12 text-base text-divination-reward"
+          >
+            {{ divination.reward }}
+          </div>
+          <div
+            class="max-w-xs text-base text-divination-reward"
+          >
+            {{ divination.lore }}
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -36,6 +61,14 @@
 
 <script>
 export default {
+  data: () => ({
+    divination: {
+      title: 'Alone in the Darkness',
+      stack: '6',
+      reward: 'Delve Item',
+      lore: 'Sometimes, the most beautiful treasures...are the ones you cannot have. - Beryl, Survivor from the Azurite Mines'
+    }
+  })
 }
 </script>
 

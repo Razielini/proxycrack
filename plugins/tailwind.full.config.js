@@ -12,6 +12,11 @@ module.exports = {
     colors: {
       transparent: 'transparent',
 
+      divination: {
+        title: '#030301',
+        reward: '#af6025'
+      },
+
       black: '#000',
       white: '#fff',
 
@@ -124,7 +129,7 @@ module.exports = {
         700: '#b83280',
         800: '#97266d',
         900: '#702459'
-      },
+      }
     },
     spacing: {
       px: '1px',
