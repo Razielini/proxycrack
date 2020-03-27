@@ -144,13 +144,15 @@ module.exports = {
       '10': '2.5rem',
       '12': '3rem',
       '16': '4rem',
+      '18': '4.5rem',
       '20': '5rem',
       '24': '6rem',
       '32': '8rem',
       '40': '10rem',
       '48': '12rem',
       '56': '14rem',
-      '64': '16rem'
+      '64': '16rem',
+      '128': '32rem'
     },
     backgroundColor: theme => theme('colors'),
     backgroundPosition: {
@@ -311,11 +313,11 @@ module.exports = {
     margin: (theme, { negative }) => ({
       auto: 'auto',
       ...theme('spacing'),
-      ...negative(theme('spacing')),
+      ...negative(theme('spacing'))
     }),
     maxHeight: {
       full: '100%',
-      screen: '100vh',
+      screen: '100vh'
     },
     maxWidth: (theme, { breakpoints }) => ({
       none: 'none',
@@ -330,16 +332,16 @@ module.exports = {
       '5xl': '64rem',
       '6xl': '72rem',
       full: '100%',
-      ...breakpoints(theme('screens')),
+      ...breakpoints(theme('screens'))
     }),
     minHeight: {
       '0': '0',
       full: '100%',
-      screen: '100vh',
+      screen: '100vh'
     },
     minWidth: {
       '0': '0',
-      full: '100%',
+      full: '100%'
     },
     objectPosition: {
       bottom: 'bottom',
@@ -350,14 +352,14 @@ module.exports = {
       right: 'right',
       'right-bottom': 'right bottom',
       'right-top': 'right top',
-      top: 'top',
+      top: 'top'
     },
     opacity: {
       '0': '0',
       '25': '0.25',
       '50': '0.5',
       '75': '0.75',
-      '100': '1',
+      '100': '1'
     },
     order: {
       first: '-9999',
@@ -374,17 +376,17 @@ module.exports = {
       '9': '9',
       '10': '10',
       '11': '11',
-      '12': '12',
+      '12': '12'
     },
     padding: theme => theme('spacing'),
     placeholderColor: theme => theme('colors'),
     stroke: {
-      current: 'currentColor',
+      current: 'currentColor'
     },
     strokeWidth: {
       '0': '0',
       '1': '1',
-      '2': '2',
+      '2': '2'
     },
     textColor: theme => theme('colors'),
     width: theme => ({
@@ -417,7 +419,7 @@ module.exports = {
       '10/12': '83.333333%',
       '11/12': '91.666667%',
       full: '100%',
-      screen: '100vw',
+      screen: '100vw'
     }),
     zIndex: {
       auto: 'auto',
@@ -426,7 +428,7 @@ module.exports = {
       '20': '20',
       '30': '30',
       '40': '40',
-      '50': '50',
+      '50': '50'
     },
     gap: theme => theme('spacing'),
     gridTemplateColumns: {
@@ -442,7 +444,7 @@ module.exports = {
       '9': 'repeat(9, minmax(0, 1fr))',
       '10': 'repeat(10, minmax(0, 1fr))',
       '11': 'repeat(11, minmax(0, 1fr))',
-      '12': 'repeat(12, minmax(0, 1fr))',
+      '12': 'repeat(12, minmax(0, 1fr))'
     },
     gridColumn: {
       auto: 'auto',
@@ -457,7 +459,7 @@ module.exports = {
       'span-9': 'span 9 / span 9',
       'span-10': 'span 10 / span 10',
       'span-11': 'span 11 / span 11',
-      'span-12': 'span 12 / span 12',
+      'span-12': 'span 12 / span 12'
     },
     gridColumnStart: {
       auto: 'auto',
