@@ -91,6 +91,22 @@
           />
         </div>
         <div
+          class="p-4 item-bench justify-between flex-row flex items-center"
+        >
+          <img
+            src="https://pvaass.github.io/poecraft/img/blank.png"
+          >
+          <label
+            class="block text-sm leading-5 text-xl font-medium mt-2"
+          >
+            Image
+          </label>
+          <img
+            class="block w-48 sm:text-sm sm:leading-5 p-2 border-dotted border-2"
+            src="/poe/divination/img/Alone_in_the_Darkness_card_art.png"
+          >
+        </div>
+        <div
           class="p-5 item-bench justify-between flex-col flex"
         >
           <button @click="saveIMG()" type="button">
