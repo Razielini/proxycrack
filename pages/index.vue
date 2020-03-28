@@ -12,63 +12,96 @@
     </div -->
 
     <div
-      class="flex justify-around mt-10"
+      class="flex flex-col md:flex-row md:justify-around md:mt-10 h-112"
     >
       <div
-        class="bg-white shadow overflow-hidden sm:rounded-lg w-128 p-10"
+        class="w-full md:w-128 flex-shrink-0"
+        style="background-image: url(https://pvaass.github.io/poecraft/img/subtle-grunge.png);"
       >
-        <label
-          class="block text-sm leading-5 text-xl font-medium text-gray-700"
+        <div
+          class="title-bench h-10"
         >
-          Title
-        </label>
-        <input
-          v-model="divination.title"
-          :placeholder="divination.title"
-          class="form-input block w-full pl-7 pr-12 sm:text-sm sm:leading-5 py-2"
+          - Divination Bench -
+        </div>
+        <div
+          class="p-4 item-bench justify-between flex-row flex items-center"
         >
-        <label
-          class="block text-sm leading-5 text-xl font-medium text-gray-700 mt-6"
+          <img
+            src="https://pvaass.github.io/poecraft/img/blank.png"
+          >
+          <label
+            class="block text-sm leading-5 text-xl font-medium"
+          >
+            Title
+          </label>
+          <input
+            v-model="divination.title"
+            :placeholder="divination.title"
+            class="form-input block w-64 sm:text-sm sm:leading-5 p-2"
+          >
+        </div>
+        <div
+          class="p-4 item-bench justify-between flex-row flex items-center"
         >
-          Reward
-        </label>
-        <input
-          v-model="divination.reward"
-          class="form-input block w-full pl-7 pr-12 sm:text-sm sm:leading-5 py-2"
-          placeholder="Write a reward"
+          <img
+            src="https://pvaass.github.io/poecraft/img/blank.png"
+          >
+          <label
+            class="block text-sm leading-5 text-xl font-medium mt-2"
+          >
+            Reward
+          </label>
+          <input
+            v-model="divination.reward"
+            class="form-input block w-64 sm:text-sm sm:leading-5 p-2"
+            placeholder="Write a reward"
+          >
+        </div>
+        <div
+          class="p-4 item-bench justify-between flex-row flex items-center"
         >
-        <label
-          class="block text-sm leading-5 text-xl font-medium text-gray-700 mt-6"
+          <img
+            src="https://pvaass.github.io/poecraft/img/blank.png"
+          >
+          <label
+            class="block text-sm leading-5 text-xl font-medium mt-2"
+          >
+            Stack
+          </label>
+          <input
+            v-model="divination.stack"
+            class="form-input block w-64 sm:text-sm sm:leading-5 p-2"
+            placeholder="6"
+            type="number"
+            step="1"
+          >
+        </div>
+        <div
+          class="p-4 item-bench justify-between flex-col flex"
         >
-          Stack
-        </label>
-        <input
-          v-model="divination.stack"
-          class="form-input block w-full pl-7 pr-12 sm:text-sm sm:leading-5 py-2"
-          placeholder="6"
-          type="number"
-          step="1"
+          <label
+            class="block text-sm leading-5 text-xl font-medium mt-2"
+          >
+            Lore
+          </label>
+          <textarea
+            v-model="divination.lore"
+            class="form-input block w-full sm:text-sm sm:leading-5 p-2 mt-2"
+            placeholder="0.00"
+          />
+        </div>
+        <div
+          class="p-5 item-bench justify-between flex-col flex"
         >
-        <label
-          class="block text-sm leading-5 text-xl font-medium text-gray-700 mt-6"
-        >
-          Lore
-        </label>
-        <textarea
-          v-model="divination.lore"
-          class="form-input block w-full pl-7 pr-12 sm:text-sm sm:leading-5 py-2"
-          placeholder="0.00"
-        />
-        <button @click="saveIMG()" type="button">
-          HTML to IMG
-        </button>
-        Row 1<br>
-        Row 1<br>
+          <button @click="saveIMG()" type="button">
+            Download Card
+          </button>
+        </div>
       </div>
 
       <div
         id="wrapper-divination-card"
-        class="bg-no-repeat"
+        class="bg-no-repeat w-full md:w-112"
       >
         <div
           id="frame-divination-card"
@@ -287,6 +320,11 @@ export default {
   background-position-y: 55px;
 }
 
+input, textarea {
+  background: black;
+  border: 1px solid #88623b;
+}
+
 #frame-divination-card {
   background-image: url('/poe/divination/divination_card_frame.png');
   background-repeat: no-repeat;
@@ -295,6 +333,26 @@ export default {
   min-width: 440px;
   min-height: 668px;
   font-family: 'Fontin SmallCaps';
+}
+
+.title-bench {
+  color: #b8905f;
+  border: 1px solid #3d3f48;
+  background: url(https://pvaass.github.io/poecraft/img/section-title-left.png) no-repeat left top,
+              url(https://pvaass.github.io/poecraft/img/section-title-right.png) no-repeat right top #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-bench {
+  color: #b8905f;
+  border-top: 2px solid #131111;
+  background-color: #211b14;
+}
+
+.item-bench:hover {
+  background-color: #392810;
 }
 
 /*
