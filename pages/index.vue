@@ -1,160 +1,158 @@
 <template>
-  <div class="h-screen">
-    <!-- div
-      class="flex justify-center items-center flex-col"
+  <div
+    class="flex flex-col md:flex-row md:justify-around md:mt-10"
+  >
+    <div
+      class="w-full md:w-128 flex-shrink-0 h-112"
+      style="background-image: url(https://pvaass.github.io/poecraft/img/subtle-grunge.png);"
     >
-      <h1 class="title">
-        proxycrack
-      </h1>
-      <h2 class="subtitle">
-        Create proxy-card of your favorites games
-      </h2>
-    </div -->
+      <div
+        class="title-bench h-10"
+      >
+        - Divination Bench -
+      </div>
+      <div
+        class="p-4 item-bench justify-between flex-row flex items-center"
+      >
+        <img
+          src="https://pvaass.github.io/poecraft/img/blank.png"
+        >
+        <label
+          class="block text-sm leading-5 text-xl font-medium"
+        >
+          Title
+        </label>
+        <input
+          v-model="divination.title"
+          :placeholder="divination.title"
+          class="form-input block w-64 sm:text-sm sm:leading-5 p-2"
+        >
+      </div>
+      <div
+        class="p-4 item-bench justify-between flex-row flex items-center"
+      >
+        <img
+          src="https://pvaass.github.io/poecraft/img/blank.png"
+        >
+        <label
+          class="block text-sm leading-5 text-xl font-medium mt-2"
+        >
+          Reward
+        </label>
+        <input
+          v-model="divination.reward"
+          class="form-input block w-64 sm:text-sm sm:leading-5 p-2"
+          placeholder="Write a reward"
+        >
+      </div>
+      <div
+        class="p-4 item-bench justify-between flex-row flex items-center"
+      >
+        <img
+          src="https://pvaass.github.io/poecraft/img/blank.png"
+        >
+        <label
+          class="block text-sm leading-5 text-xl font-medium mt-2"
+        >
+          Stack
+        </label>
+        <input
+          v-model="divination.stack"
+          class="form-input block w-64 sm:text-sm sm:leading-5 p-2"
+          placeholder="6"
+          type="number"
+          step="1"
+        >
+      </div>
+      <div
+        class="p-4 item-bench justify-between flex-col flex"
+      >
+        <label
+          class="block text-sm leading-5 text-xl font-medium mt-2"
+        >
+          Lore
+        </label>
+        <textarea
+          v-model="divination.lore"
+          class="form-input block w-full sm:text-sm sm:leading-5 p-2 mt-2"
+          placeholder="0.00"
+        />
+      </div>
+      <div
+        class="p-4 item-bench justify-between flex-row flex items-center"
+      >
+        <img
+          src="https://pvaass.github.io/poecraft/img/blank.png"
+        >
+        <label
+          class="block text-sm leading-5 text-xl font-medium mt-2"
+        >
+          Image
+        </label>
+        <img
+          @click="modal.show = !modal.show"
+          class="block w-48 sm:text-sm sm:leading-5 p-2 border-dotted border-2 cursor-pointer"
+          src="/poe/divination/img/Alone_in_the_Darkness_card_art.png"
+        >
+      </div>
+      <div
+        class="p-5 item-bench justify-between flex-col flex"
+      >
+        <button @click="saveIMG()" type="button">
+          Download Card
+        </button>
+      </div>
+    </div>
 
     <div
-      class="flex flex-col md:flex-row md:justify-around md:mt-10 h-112"
+      id="wrapper-divination-card"
+      class="bg-no-repeat w-full md:w-112"
     >
       <div
-        class="w-full md:w-128 flex-shrink-0"
-        style="background-image: url(https://pvaass.github.io/poecraft/img/subtle-grunge.png);"
+        id="frame-divination-card"
+        class="flex flex-col items-center"
       >
         <div
-          class="title-bench h-10"
+          class="mt-5 mb-2 text-xl text-divination-title text-center"
         >
-          - Divination Bench -
+          {{ divination.title }}
         </div>
         <div
-          class="p-4 item-bench justify-between flex-row flex items-center"
+          class="mx-18 mt-64 self-start text-xl text-white text-center"
         >
-          <img
-            src="https://pvaass.github.io/poecraft/img/blank.png"
-          >
-          <label
-            class="block text-sm leading-5 text-xl font-medium"
-          >
-            Title
-          </label>
-          <input
-            v-model="divination.title"
-            :placeholder="divination.title"
-            class="form-input block w-64 sm:text-sm sm:leading-5 p-2"
-          >
+          {{ divination.stack }}
         </div>
         <div
-          class="p-4 item-bench justify-between flex-row flex items-center"
+          class="mt-12 mb-16  text-xl text-divination-reward text-center"
         >
-          <img
-            src="https://pvaass.github.io/poecraft/img/blank.png"
-          >
-          <label
-            class="block text-sm leading-5 text-xl font-medium mt-2"
-          >
-            Reward
-          </label>
-          <input
-            v-model="divination.reward"
-            class="form-input block w-64 sm:text-sm sm:leading-5 p-2"
-            placeholder="Write a reward"
-          >
+          {{ divination.reward }}
         </div>
         <div
-          class="p-4 item-bench justify-between flex-row flex items-center"
+          class="max-w-xs text-base text-divination-reward text-center"
         >
-          <img
-            src="https://pvaass.github.io/poecraft/img/blank.png"
-          >
-          <label
-            class="block text-sm leading-5 text-xl font-medium mt-2"
-          >
-            Stack
-          </label>
-          <input
-            v-model="divination.stack"
-            class="form-input block w-64 sm:text-sm sm:leading-5 p-2"
-            placeholder="6"
-            type="number"
-            step="1"
-          >
-        </div>
-        <div
-          class="p-4 item-bench justify-between flex-col flex"
-        >
-          <label
-            class="block text-sm leading-5 text-xl font-medium mt-2"
-          >
-            Lore
-          </label>
-          <textarea
-            v-model="divination.lore"
-            class="form-input block w-full sm:text-sm sm:leading-5 p-2 mt-2"
-            placeholder="0.00"
-          />
-        </div>
-        <div
-          class="p-4 item-bench justify-between flex-row flex items-center"
-        >
-          <img
-            src="https://pvaass.github.io/poecraft/img/blank.png"
-          >
-          <label
-            class="block text-sm leading-5 text-xl font-medium mt-2"
-          >
-            Image
-          </label>
-          <img
-            class="block w-48 sm:text-sm sm:leading-5 p-2 border-dotted border-2"
-            src="/poe/divination/img/Alone_in_the_Darkness_card_art.png"
-          >
-        </div>
-        <div
-          class="p-5 item-bench justify-between flex-col flex"
-        >
-          <button @click="saveIMG()" type="button">
-            Download Card
-          </button>
-        </div>
-      </div>
-
-      <div
-        id="wrapper-divination-card"
-        class="bg-no-repeat w-full md:w-112"
-      >
-        <div
-          id="frame-divination-card"
-          class="flex flex-col items-center"
-        >
-          <div
-            class="mt-5 mb-2 text-xl text-divination-title text-center"
-          >
-            {{ divination.title }}
-          </div>
-          <div
-            class="mx-18 mt-64 self-start text-xl text-white text-center"
-          >
-            {{ divination.stack }}
-          </div>
-          <div
-            class="mt-12 mb-16  text-xl text-divination-reward text-center"
-          >
-            {{ divination.reward }}
-          </div>
-          <div
-            class="max-w-xs text-base text-divination-reward text-center"
-          >
-            {{ divination.lore }}
-          </div>
+          {{ divination.lore }}
         </div>
       </div>
     </div>
+    <modal-images
+      :show.sync="modal.show"
+    />
   </div>
 </template>
 
 <script>
+import modalImages from '@/components/modal-images.vue'
 import htmlToImage from 'html-to-image'
 import download from 'downloadjs'
 
 export default {
+  components: {
+    modalImages
+  },
   data: () => ({
+    modal: {
+      show: false
+    },
     divination: {
       title: 'Alone in the Darkness',
       stack: '6',
