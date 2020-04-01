@@ -7,7 +7,7 @@
       style="background-image: url(https://pvaass.github.io/poecraft/img/subtle-grunge.png);"
     >
       <div
-        class="title-bench h-10"
+        class="title-bench h-10 justify-center"
       >
         - Divination Bench -
       </div>
@@ -92,13 +92,17 @@
         <img
           @click="modal.show = !modal.show"
           class="block w-48 sm:text-sm sm:leading-5 p-2 border-dotted border-2 cursor-pointer"
-          src="/poe/divination/img/Alone_in_the_Darkness_card_art.png"
+          :src="'/poe/divination/img/' + divination.img"
         >
       </div>
       <div
-        class="p-5 item-bench justify-between flex-col flex"
+        class="item-bench justify-between flex-col flex"
       >
-        <button @click="saveIMG()" type="button">
+        <button
+          @click="saveIMG()"
+          type="button"
+          class="p-5"
+        >
           Download Card
         </button>
       </div>
@@ -107,6 +111,7 @@
     <div
       id="wrapper-divination-card"
       class="bg-no-repeat w-full md:w-112"
+      :style="'background-image: url(/poe/divination/img/' + divination.img +')'"
     >
       <div
         id="frame-divination-card"
@@ -135,6 +140,7 @@
       </div>
     </div>
     <modal-images
+      @card="getCard"
       :show.sync="modal.show"
     />
   </div>
@@ -151,16 +157,23 @@ export default {
   },
   data: () => ({
     modal: {
-      show: false
+      show: false,
+      card: null
     },
     divination: {
       title: 'Alone in the Darkness',
       stack: '6',
       reward: 'Delve Item',
-      lore: 'Sometimes, the most beautiful treasures...are the ones you cannot have. - Beryl, Survivor from the Azurite Mines'
+      lore: 'Sometimes, the most beautiful treasures...are the ones you cannot have. - Beryl, Survivor from the Azurite Mines',
+      img: 'Alone_in_the_Darkness_card_art.png'
     }
   }),
   methods: {
+    getCard (item) {
+      console.log('getCard ', item)
+      this.modal.img = item.src
+      this.divination.img = item.src
+    },
     saveIMG () {
       console.log('saveIMG')
       htmlToImage.toPng(document.getElementById('wrapper-divination-card'))
@@ -328,7 +341,6 @@ export default {
 }
 
 #wrapper-divination-card {
-  background-image: url('/poe/divination/img/Alone_in_the_Darkness_card_art.png');
   background-size: auto;
   background-position-x: center;
   background-position-y: 55px;
@@ -356,7 +368,6 @@ input, textarea {
               url(https://pvaass.github.io/poecraft/img/section-title-right.png) no-repeat right top #000;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .item-bench {
@@ -368,24 +379,4 @@ input, textarea {
 .item-bench:hover {
   background-color: #392810;
 }
-
-/*
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
- */
 </style>
