@@ -3,7 +3,7 @@
     class="flex flex-col md:flex-row md:justify-around md:mt-10"
   >
     <div
-      class="w-full md:w-128 flex-shrink-0 h-112"
+      class="w-full md:w-128 flex-shrink-0 md:h-112"
       style="background-image: url(https://pvaass.github.io/poecraft/img/subtle-grunge.png);"
     >
       <div
@@ -91,8 +91,8 @@
         </label>
         <img
           @click="modal.show = !modal.show"
-          class="block w-48 sm:text-sm sm:leading-5 p-2 border-dotted border-2 cursor-pointer"
           :src="'/poe/divination/img/' + divination.img"
+          class="block w-48 sm:text-sm sm:leading-5 p-2 border-dotted border-2 cursor-pointer"
         >
       </div>
       <div
@@ -110,20 +110,20 @@
 
     <div
       id="wrapper-divination-card"
-      class="bg-no-repeat w-full md:w-112"
       :style="'background-image: url(/poe/divination/img/' + divination.img +')'"
+      class="bg-no-repeat w-94 mt-4 md:mt-0 md:w-112"
     >
       <div
         id="frame-divination-card"
         class="flex flex-col items-center"
       >
         <div
-          class="mt-5 mb-2 text-xl text-divination-title text-center"
+          class="mt-16 md:mt-5 mb-2 text-xl text-divination-title text-center"
         >
           {{ divination.title }}
         </div>
         <div
-          class="mx-18 mt-64 self-start text-xl text-white text-center"
+          class="mx-16 md:mx-18 mt-52 md:mt-64 self-start text-xl text-white text-center"
         >
           {{ divination.stack }}
         </div>
@@ -356,7 +356,6 @@ input, textarea {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  min-width: 440px;
   min-height: 668px;
   font-family: 'Fontin SmallCaps';
 }
