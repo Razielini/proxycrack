@@ -4,8 +4,6 @@
     dark
     dense
   >
-    <v-app-bar-nav-icon />
-
     <v-toolbar-title>Proxycrack</v-toolbar-title>
 
     <v-spacer />
