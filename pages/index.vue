@@ -90,20 +90,153 @@
           Image
         </label>
         <img
-          @click="modal.show = !modal.show"
           :src="'/poe/divination/img/' + divination.img"
           class="block w-48 sm:text-sm sm:leading-5 p-2 border-dotted border-2 cursor-pointer"
+          @click="modal.show = !modal.show"
         >
       </div>
       <div
         class="item-bench justify-between flex-col flex"
       >
         <button
-          @click="saveIMG()"
           type="button"
           class="p-5"
+          @click="saveIMG()"
         >
           Download Card
+        </button>
+      </div>
+    </div>
+    <div
+      class="w-full md:w-128 flex-shrink-0 md:h-112 hidden"
+      style="background-image: url(https://pvaass.github.io/poecraft/img/subtle-grunge.png);"
+    >
+      <div
+        class="title-bench h-10 justify-center"
+      >
+        - Image Selection -
+      </div>
+      <div
+        class="p-4 item-bench justify-between flex-row flex items-center flex-wrap justify-around"
+      >
+        <div
+          class="card-image px-2 my-2 w-1/2 md:w-1/3 justify-start inline-block cursor-pointer"
+        >
+          <div
+            class="title flex justify-center text-xs items-center font-thin truncate"
+          >
+            cardItem.title }}
+          </div>
+          <img
+            :src="'/poe/divination/img/' + divination.img"
+          >
+        </div>
+        <div
+          class="card-image px-2 my-2 w-1/2 md:w-1/3 justify-start inline-block cursor-pointer"
+        >
+          <div
+            class="title flex justify-center text-base items-center font-thin truncate"
+          >
+            cardItem.title }}
+          </div>
+          <img
+            :src="'/poe/divination/img/' + divination.img"
+          >
+        </div>
+        <div
+          class="card-image px-2 my-2 w-1/2 md:w-1/3 justify-start inline-block cursor-pointer"
+        >
+          <div
+            class="title flex justify-center text-base items-center font-thin truncate"
+          >
+            cardItem.title }}
+          </div>
+          <img
+            :src="'/poe/divination/img/' + divination.img"
+          >
+        </div>
+        <div
+          class="card-image px-2 my-2 w-1/2 md:w-1/3 justify-start inline-block cursor-pointer"
+        >
+          <div
+            class="title flex justify-center text-base items-center font-thin truncate"
+          >
+            cardItem.title }}
+          </div>
+          <img
+            :src="'/poe/divination/img/' + divination.img"
+          >
+        </div>
+        <div
+          class="card-image px-2 my-2 w-1/2 md:w-1/3 justify-start inline-block cursor-pointer"
+        >
+          <div
+            class="title flex justify-center text-base items-center font-thin truncate"
+          >
+            cardItem.title }}
+          </div>
+          <img
+            :src="'/poe/divination/img/' + divination.img"
+          >
+        </div>
+        <div
+          class="card-image px-2 my-2 w-1/2 md:w-1/3 justify-start inline-block cursor-pointer"
+        >
+          <div
+            class="title flex justify-center text-base items-center font-thin truncate"
+          >
+            cardItem.title }}
+          </div>
+          <img
+            :src="'/poe/divination/img/' + divination.img"
+          >
+        </div>
+        <div
+          class="card-image px-2 my-2 w-1/2 md:w-1/3 justify-start inline-block cursor-pointer"
+        >
+          <div
+            class="title flex justify-center text-base items-center font-thin truncate"
+          >
+            cardItem.title }}
+          </div>
+          <img
+            :src="'/poe/divination/img/' + divination.img"
+          >
+        </div>
+        <div
+          class="card-image px-2 my-2 w-1/2 md:w-1/3 justify-start inline-block cursor-pointer"
+        >
+          <div
+            class="title flex justify-center text-base items-center font-thin truncate"
+          >
+            cardItem.title }}
+          </div>
+          <img
+            :src="'/poe/divination/img/' + divination.img"
+          >
+        </div>
+        <div
+          class="card-image px-2 my-2 w-1/2 md:w-1/3 justify-start inline-block cursor-pointer"
+        >
+          <div
+            class="title flex justify-center text-base items-center font-thin truncate"
+          >
+            cardItem.title }}
+          </div>
+          <img
+            :src="'/poe/divination/img/' + divination.img"
+          >
+        </div>
+      </div>
+      <div
+        class="item-bench justify-between flex-col flex"
+      >
+        <button
+          type="button"
+          class="p-5"
+          @click="saveIMG()"
+        >
+          Select Image
         </button>
       </div>
     </div>
@@ -140,8 +273,8 @@
       </div>
     </div>
     <modal-images
-      @card="getCard"
       :show.sync="modal.show"
+      @card="getCard"
     />
   </div>
 </template>

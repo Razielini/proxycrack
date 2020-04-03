@@ -1,8 +1,12 @@
 <template>
-  <div class="bg-gray-900">
+  <v-app>
     <top-bar />
-    <nuxt />
-  </div>
+    <v-content>
+      <v-container>
+        <nuxt />
+      </v-container>
+    </v-content>
+  </v-app>
 </template>
 
 <script>

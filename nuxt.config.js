@@ -1,3 +1,4 @@
+import colors from 'vuetify/es5/util/colors'
 
 export default {
   mode: 'universal',
@@ -38,11 +39,35 @@ export default {
   tailwindcss: {
     configPath: '~/plugins/tailwind.full.config.js',
     cssPath: '~/assets/css/tailwind.css',
-    purgeCSSInDev: false,
-    exposeConfig: false
+    purgeCSSInDev: true,
+    exposeConfig: true
   },
   purgeCSS: {
     mode: 'postcss'
+  },
+  /*
+  ** vuetify module configuration
+  ** https://github.com/nuxt-community/vuetify-module
+  */
+  vuetify: {
+    customVariables: ['~/assets/variables.scss'],
+    theme: {
+      dark: true,
+      themes: {
+        dark: {
+          primary: colors.blue.darken2,
+          accent: colors.grey.darken3,
+          secondary: colors.amber.darken3,
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.deepOrange.accent4,
+          success: colors.green.accent3
+        }
+      }
+    },
+    icons: {
+      iconfont: 'mdi'
+    }
   },
   /*
   ** Nuxt.js dev-modules
@@ -51,7 +76,9 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/vuetify',
+    '@nuxt/typescript-build'
   ],
   /*
   ** Nuxt.js modules
@@ -69,8 +96,14 @@ export default {
   build: {
     /*
     ** You can extend webpack config here
-    */
+    *
     extend (config, ctx) {
+    }
+    */
+  },
+  typescript: {
+    typeCheck: {
+      eslint: false
     }
   },
   server: {

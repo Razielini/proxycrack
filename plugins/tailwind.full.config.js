@@ -231,7 +231,7 @@ module.exports = {
     },
     flexShrink: {
       '0': '0',
-      default: '1',
+      default: '1'
     },
     fontFamily: {
       sans: [
@@ -247,10 +247,10 @@ module.exports = {
         '"Apple Color Emoji"',
         '"Segoe UI Emoji"',
         '"Segoe UI Symbol"',
-        '"Noto Color Emoji"',
+        '"Noto Color Emoji"'
       ],
       serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
-      mono: ['Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
+      mono: ['Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace']
     },
     fontSize: {
       xs: '0.75rem',
@@ -262,7 +262,7 @@ module.exports = {
       '3xl': '1.875rem',
       '4xl': '2.25rem',
       '5xl': '3rem',
-      '6xl': '4rem',
+      '6xl': '4rem'
     },
     fontWeight: {
       hairline: '100',
@@ -273,17 +273,17 @@ module.exports = {
       semibold: '600',
       bold: '700',
       extrabold: '800',
-      black: '900',
+      black: '900'
     },
     height: theme => ({
       auto: 'auto',
       ...theme('spacing'),
       full: '100%',
-      screen: '100vh',
+      screen: '100vh'
     }),
     inset: {
       '0': '0',
-      auto: 'auto',
+      auto: 'auto'
     },
     letterSpacing: {
       tighter: '-0.05em',
@@ -291,7 +291,7 @@ module.exports = {
       normal: '0',
       wide: '0.025em',
       wider: '0.05em',
-      widest: '0.1em',
+      widest: '0.1em'
     },
     lineHeight: {
       none: '1',
@@ -307,12 +307,12 @@ module.exports = {
       '7': '1.75rem',
       '8': '2rem',
       '9': '2.25rem',
-      '10': '2.5rem',
+      '10': '2.5rem'
     },
     listStyleType: {
       none: 'none',
       disc: 'disc',
-      decimal: 'decimal',
+      decimal: 'decimal'
     },
     margin: (theme, { negative }) => ({
       auto: 'auto',
