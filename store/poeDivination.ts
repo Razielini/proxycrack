@@ -1,4 +1,7 @@
 export const state = () => ({
+  ui: {
+    bullet: '/poe/divination/ui/bullet-point.png'
+  },
   images: [
     { title: 'A Dab of Ink', src: 'A_Dab_of_Ink_card_art.png' },
     { title: 'A Mothers Parting Gift', src: 'A_Mothers_Parting_Gift_card_art.png' },

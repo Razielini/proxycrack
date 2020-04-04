@@ -1,10 +1,14 @@
 <template>
-  <v-row>
-    <v-col>
+  <v-row
+    class="d-flex"
+  >
+    <v-col
+      class="md-col-6 sm-col-12"
+    >
       <v-expansion-panels
         v-model="panel"
         accordion
-        class="mb-0 fontin-smallcaps"
+        class="mb-0 fontin-smallcaps divination--text"
       >
         <v-expansion-panel
           class="pa-0 ma-0"
@@ -15,7 +19,7 @@
           >
             <template v-slot:default="{ open }">
               <p
-                class="text-center ma-0"
+                class="text-center ma-0 divination--text"
               >
                 - Divination Bench -
               </p>
@@ -24,59 +28,59 @@
           <v-expansion-panel-content
             class="pa-0 ma-0"
           >
-            <div
-              class="p-4 item-bench justify-between flex-row flex items-center"
+            <v-row
+              class="md-flex justify-md-space-between align-center pa-4 ma-0 item-bench"
             >
               <img
-                src="https://pvaass.github.io/poecraft/img/blank.png"
+                :src="ui.bullet"
               >
               <label
-                class="block text-sm leading-5 text-xl font-medium"
+                class="divination--text flex-grow mx-4"
               >
                 Title
               </label>
               <input
                 v-model="divination.title"
                 :placeholder="divination.title"
-                class="form-input block w-64 sm:text-sm sm:leading-5 p-2"
+                class="divination--text pa-2 flex-grow"
               >
-            </div>
-            <div
-              class="p-4 item-bench justify-between flex-row flex items-center"
+            </v-row>
+            <v-row
+              class="md-flex justify-md-space-between align-center pa-4 ma-0 item-bench"
             >
               <img
-                src="https://pvaass.github.io/poecraft/img/blank.png"
+                :src="ui.bullet"
               >
               <label
-                class="block text-sm leading-5 text-xl font-medium mt-2"
+                class="divination--text flex-grow mx-4"
               >
                 Reward
               </label>
               <input
                 v-model="divination.reward"
-                class="form-input block w-64 sm:text-sm sm:leading-5 p-2"
                 placeholder="Write a reward"
+                class="divination--text pa-2 flex-grow"
               >
-            </div>
-            <div
-              class="p-4 item-bench justify-between flex-row flex items-center"
+            </v-row>
+            <v-row
+              class="md-flex justify-md-space-between align-center pa-4 ma-0 item-bench"
             >
               <img
-                src="https://pvaass.github.io/poecraft/img/blank.png"
+                :src="ui.bullet"
               >
               <label
-                class="block text-sm leading-5 text-xl font-medium mt-2"
+                class="divination--text flex-grow mx-4"
               >
                 Stack
               </label>
               <input
                 v-model="divination.stack"
-                class="form-input block w-64 sm:text-sm sm:leading-5 p-2"
-                placeholder="6"
+                :placeholder="divination.stack"
                 type="number"
                 step="1"
+                class="divination--text pa-2 flex-grow"
               >
-            </div>
+            </v-row>
             <div
               class="p-4 item-bench justify-between flex-col flex"
             >
@@ -87,7 +91,7 @@
               </label>
               <v-textarea
                 v-model="divination.lore"
-                color="#000"
+                color="divination"
                 counter
                 class="px-0 ma-0"
               />
@@ -318,7 +322,9 @@
         </div>
       </div>
     </v-col>
-    <v-col>
+    <v-col
+      class="md-col-6 sm-col-12"
+    >
       <div
         id="wrapper-divination-card"
         :style="'background-image: url(/poe/divination/img/' + divination.img +')'"
@@ -355,18 +361,17 @@
 </template>
 
 <script lang="ts">
-import htmlToImage from 'html-to-image'
-import download from 'downloadjs'
 import { Component, Vue } from 'nuxt-property-decorator'
+const htmlToImage = require('html-to-image')
+const download = require('downloadjs')
 
-@Component({
-  components: {
-    htmlToImage,
-    download
-  }
-})
+@Component
 export default class ViewPoeDivination extends Vue {
   divinationImages: any[] = this.$store.state.poeDivination.images
+  ui: any = {
+    bullet: this.$store.state.poeDivination.ui.bullet
+  }
+
   pagination: any = {
     page: 1,
     itemsPerPage: 9
@@ -804,6 +809,11 @@ export default {
     url(https://pvaass.github.io/poecraft/img/section-title-right.png) no-repeat right top #000;
     display: flex;
     align-items: center;
+  }
+
+  .item-bench textarea {
+    color: #b8905f !important;
+    padding: 8px;
   }
 
   .item-bench {

@@ -36,12 +36,6 @@ export default {
   /*
   ** Nuxt.js modules
   */
-  tailwindcss: {
-    configPath: '~/plugins/tailwind.full.config.js',
-    cssPath: '~/assets/css/tailwind.css',
-    purgeCSSInDev: true,
-    exposeConfig: true
-  },
   purgeCSS: {
     mode: 'postcss'
   },
@@ -55,6 +49,7 @@ export default {
       dark: true,
       themes: {
         dark: {
+          divination: '#b8905f',
           primary: colors.blue.darken2,
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
@@ -76,9 +71,9 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss',
     '@nuxtjs/vuetify',
-    '@nuxt/typescript-build'
+    '@nuxt/typescript-build',
+    '@nuxtjs/style-resources'
   ],
   /*
   ** Nuxt.js modules
@@ -94,6 +89,7 @@ export default {
   ** Build configuration
   */
   build: {
+    extractCSS: true
     /*
     ** You can extend webpack config here
     *

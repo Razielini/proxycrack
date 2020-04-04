@@ -1,0 +1,18 @@
+// Globals
+
+@font-face {
+  font-family: 'Fontin SmallCaps';
+  src: url('/poe/divination/font/Fontin-SmallCaps.ttf');
+  font-weight: 400;
+  font-style: italic;
+}
+
+
+$poe-font-family: 'Fontin SmallCaps';
+
+$headings: (
+  'poe-title': (
+    'size': 1.25rem,
+    'font-family': $poe-font-family
+  )
+);
