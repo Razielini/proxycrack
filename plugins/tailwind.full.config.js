@@ -1,5 +1,5 @@
 module.exports = {
-  prefix: '',
+  prefix: 'tw-',
   theme: {
     screens: {
       sm: '640px',
@@ -19,6 +19,8 @@ module.exports = {
       '8': '2rem',
       '10': '2.5rem',
       '12': '3rem',
+      '13': '3.25rem',
+      '14': '3.5rem',
       '16': '4rem',
       '18': '4.5rem',
       '20': '5rem',
@@ -27,6 +29,7 @@ module.exports = {
       '40': '10rem',
       '48': '12rem',
       '52': '13rem',
+      '53': '13.25rem',
       '56': '14rem',
       '64': '16rem',
       '75': '18.75rem',

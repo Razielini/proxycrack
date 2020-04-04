@@ -1,6 +1,6 @@
 <template>
   <v-app-bar
-    color="deep-purple accent-4"
+    color="deep-purple accent-4 max-height"
     dark
     dense
   >
@@ -25,3 +25,9 @@ export default {
   }
 }
 </script>
+
+<style>
+  .max-height {
+    max-height: 48px;
+  }
+</style>

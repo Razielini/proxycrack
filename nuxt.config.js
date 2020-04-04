@@ -36,8 +36,19 @@ export default {
   /*
   ** Nuxt.js modules
   */
+  tailwindcss: {
+    configPath: '~/plugins/tailwind.full.config.js',
+    cssPath: '~/assets/css/tailwind.css',
+    purgeCSSInDev: true,
+    exposeConfig: true
+  },
   purgeCSS: {
-    mode: 'postcss'
+    mode: 'postcss',
+    content: [
+      './*/*.html',
+      './*/*.js',
+      './*/*.vue'
+    ]
   },
   /*
   ** vuetify module configuration
@@ -50,6 +61,7 @@ export default {
       themes: {
         dark: {
           divination: '#b8905f',
+          divinationcard: '#af6025',
           primary: colors.blue.darken2,
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
@@ -71,6 +83,7 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
+    '@nuxtjs/tailwindcss',
     '@nuxtjs/vuetify',
     '@nuxt/typescript-build',
     '@nuxtjs/style-resources'
