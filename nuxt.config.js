@@ -32,24 +32,11 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/vuetify.js'
   ],
   /*
   ** Nuxt.js modules
   */
-  tailwindcss: {
-    configPath: '~/plugins/tailwind.full.config.js',
-    cssPath: '~/assets/css/tailwind.css',
-    purgeCSSInDev: true,
-    exposeConfig: true
-  },
-  purgeCSS: {
-    mode: 'postcss',
-    content: [
-      './*/*.html',
-      './*/*.js',
-      './*/*.vue'
-    ]
-  },
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
@@ -74,7 +61,8 @@ export default {
     },
     icons: {
       iconfont: 'mdi'
-    }
+    },
+    treeShake: true
   },
   /*
   ** Nuxt.js dev-modules
@@ -83,7 +71,6 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss',
     '@nuxtjs/vuetify',
     '@nuxt/typescript-build',
     '@nuxtjs/style-resources'
@@ -95,8 +82,7 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    '@nuxtjs/axios',
-    'nuxt-purgecss'
+    '@nuxtjs/axios'
   ],
   /*
   ** Build configuration

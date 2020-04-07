@@ -1,6 +1,6 @@
 <template>
   <v-row
-    class="d-flex justify-space-around tw-flex-col flex-md-row"
+    class="d-flex justify-space-around flex-column flex-md-row"
   >
     <v-col
       class=""
@@ -19,7 +19,7 @@
           >
             <template v-slot:default="{ open }">
               <p
-                class="text-center ma-0 divination--text tw-text-lg"
+                class="text-center ma-0 divination--text poe-title"
               >
                 - Divination Bench -
               </p>
@@ -35,15 +35,21 @@
                 :src="ui.bullet"
               >
               <label
-                class="divination--text flex-grow mx-4 tw-w-1/4"
+                class="divination--text flex-grow poe-title mx-4 md-col-3"
               >
                 Title
               </label>
-              <input
-                v-model="divination.title"
-                :placeholder="divination.title"
-                class="divination--text pa-2 flex-grow md:tw-w-1/2 tw-w-full mt-4 md:tw-mt-0"
+              <v-flex
+                md6
+                sm12
               >
+                <input
+                  v-model="divination.title"
+                  :placeholder="divination.title"
+                  class="divination--text pa-2 flex-grow mt-0"
+                  style="width: 100%"
+                >
+              </v-flex>
             </v-row>
             <v-row
               class="md-flex justify-md-space-between align-center pa-4 ma-0 item-bench"
@@ -52,15 +58,21 @@
                 :src="ui.bullet"
               >
               <label
-                class="divination--text flex-grow mx-4 tw-w-1/4"
+                class="divination--text flex-grow mx-4 poe-title"
               >
                 Reward
               </label>
-              <input
-                v-model="divination.reward"
-                placeholder="Write a reward"
-                class="divination--text pa-2 flex-grow md:tw-w-1/2 tw-w-full mt-4 md:tw-mt-0"
+              <v-flex
+                md6
+                sm12
               >
+                <input
+                  v-model="divination.reward"
+                  placeholder="Write a reward"
+                  class="divination--text pa-2 flex-grow mt-0"
+                  style="width: 100%"
+                >
+              </v-flex>
             </v-row>
             <v-row
               class="md-flex justify-md-space-between align-center pa-4 ma-0 item-bench"
@@ -69,17 +81,23 @@
                 :src="ui.bullet"
               >
               <label
-                class="divination--text flex-grow mx-4 tw-w-1/4"
+                class="divination--text flex-grow mx-4 poe-title"
               >
                 Stack
               </label>
-              <input
-                v-model="divination.stack"
-                :placeholder="divination.stack"
-                type="number"
-                step="1"
-                class="divination--text pa-2 flex-grow md:tw-w-1/2 tw-w-full mt-4 md:tw-mt-0"
+              <v-flex
+                md6
+                sm12
               >
+                <input
+                  v-model="divination.stack"
+                  :placeholder="divination.stack"
+                  type="number"
+                  step="1"
+                  class="divination--text pa-2 flex-grow mt-0"
+                  style="width: 100%"
+                >
+              </v-flex>
             </v-row>
             <div
               class="item-bench tw-justify-between tw-flex-col tw-flex pa-4"
@@ -107,7 +125,7 @@
           >
             <template v-slot:default="{ open }">
               <p
-                class="text-center ma-0 tw-text-lg"
+                class="text-center ma-0 poe-title"
               >
                 - Images -
               </p>
@@ -121,11 +139,10 @@
             >
               <v-spacer />
               <p
-                class="fontin-smallcaps cursor-pointer mx-2 my-0"
+                class="fontin-smallcaps cursor-pointer mx-2 my-0 hover-item"
                 @click="lessPage()"
               >
-                <v-icon>mdi-chevron-left</v-icon>
-                Prev
+                &#060; Prev
               </p>
               <p
                 class="fontin-smallcaps mx-2 my-0"
@@ -133,11 +150,10 @@
                 {{ pagination.page }} / {{ totalPages }}
               </p>
               <p
-                class="fontin-smallcaps cursor-pointer mx-2 my-0"
+                class="fontin-smallcaps cursor-pointer mx-2 my-0 hover-item"
                 @click="addPage()"
               >
-                Next
-                <v-icon>mdi-chevron-right</v-icon>
+                Next &#62;
               </p>
             </v-row>
             <v-data-iterator
@@ -148,25 +164,26 @@
             >
               <template v-slot:default="props">
                 <div
-                  class="fluid grid-list-md col-12"
+                  class="fluid grid-list-md col-12 flex-wrap"
                 >
                   <v-layout
                     align-start
                     justify-start
                     fill-height
+                    flex-wrap
                     row
                   >
                     <v-flex
                       v-for="item in props.items"
                       :key="item.src"
                       md4
-                      xs6
-                      :class="item.src === divination.img ? 'card-image-active' : null + ' card-image pa-2 pt-1 cursor-pointer'"
+                      sm6
+                      :class="activeImage(item.src) + ' card-image pa-2 pt-1 cursor-pointer md4 xs6'"
                       @click="imageSelected(item)"
                     >
-                      <img
+                      <v-img
                         :src="'/poe/divination/img/' + item.src"
-                      >
+                      />
                     </v-flex>
                   </v-layout>
                 </div>
@@ -177,7 +194,7 @@
       </v-expansion-panels>
 
       <div
-        class="item-bench tw-justify-between tw-flex-col tw-flex fontin-smallcaps"
+        class="item-bench justify-space-between flex-column d-flex fontin-smallcaps"
       >
         <button
           type="button"
@@ -193,30 +210,33 @@
     >
       <div
         id="wrapper-divination-card"
-        :style="'background-image: url(/poe/divination/img/' + divination.img +'); background-size: ' + bgSizeImage + 'px; background-position-y: ' + bgPosYImage + 'px'"
-        class="bg-no-repeat tw-w-full mx-auto mt-0"
+        :style="'background-image: url(/poe/divination/img/' + divination.img +'); background-size: ' + bgSizeImage($vuetify.breakpoint.xs) + 'px; background-position-y: ' + bgPosYImage($vuetify.breakpoint.xs) + 'px;'"
+        class="bg-no-repeat mx-auto mt-0 fontin-smallcaps"
       >
         <div
-          id="frame-divination-card"
-          class="tw-flex tw-flex-col tw-items-center"
+          class="d-flex flex-column align-center frame-divination-card"
         >
           <div
-            class="tw-mt-16 md:tw-mt-5 md:tw-mb-13 tw-mb-2 tw-text-xl text-divination-title tw-text-center black--text"
+            class="poe-title text-divination-title text-center black--text"
+            :style="'margin-top:' + marginTop($vuetify.breakpoint.xs, 'title') + 'px;'"
           >
             {{ divination.title }}
           </div>
           <div
-            class="tw-mx-16 md:mx-18 tw-mt-53 md:mt-64 tw-self-start tw-text-xl white--text tw-text-center divinationcard--text"
+            class="align-self-start white--text divinationcard--text font-size-larger"
+            :style="'margin-top:' + marginTop($vuetify.breakpoint.xs, 'stack') + 'px; margin-left: ' + marginLeftStack($vuetify.breakpoint.xs) + 'px;'"
           >
             {{ divination.stack }}
           </div>
           <div
-            class="tw-mt-12 tw-mb-16  tw-text-xl text-divination-reward text-center divinationcard--text"
+            class="text-divination-reward text-center divinationcard--text font-size-x-large"
+            :style="'margin-top:' + marginTop($vuetify.breakpoint.xs, 'reward') + 'px;'"
           >
             {{ divination.reward }}
           </div>
           <div
-            class="tw-max-w-xs tw-text-base text-divination-reward text-center divinationcard--text"
+            class="text-divination-reward text-center divinationcard--text lore"
+            :style="'margin-top:' + marginTop($vuetify.breakpoint.xs, 'lore') + 'px;'"
           >
             {{ divination.lore }}
           </div>
@@ -253,28 +273,64 @@ export default class ViewPoeDivination extends Vue {
     img: 'Alone_in_the_Darkness_card_art.png'
   }
 
-  get bgSizeImage () {
+  activeImage (src: string) {
+    let res: string = ''
+    if (src === this.divination.img) {
+      res = 'card-image-active'
+    }
+    return res
+  }
+
+  bgSizeImage (breakpoint: boolean) {
     let res: number = 400
-    if (this.$vuetify.breakpoint.xs) {
+    if (breakpoint) {
       res = 330
     }
     return res
   }
 
-  get bgPosYImage () {
-    let res: number = 55
-    if (this.$vuetify.breakpoint.xs) {
-      res = 97
+  marginTop (breakpoint: boolean, element: string) {
+    let res: number = 0
+    if (element === 'title') {
+      res = 20
+      if (breakpoint) {
+        res = 65
+      }
+    } else if (element === 'stack') {
+      res = 263
+      if (breakpoint) {
+        res = 220
+      }
+    } else if (element === 'reward') {
+      res = 55
+      if (breakpoint) {
+        res = 35
+      }
+    } else if (element === 'lore') {
+      res = 45
+      if (breakpoint) {
+        res = 45
+      }
     }
     return res
   }
 
-  get styleImage () {
-    let res: string = ''
-    if (this.$vuetify.breakpoint.xs) {
-      res = 'background-size: 330px !important; background-position-y: 97px;'
+  marginLeftStack (breakpoint: boolean) {
+    let res: number = 118
+
+    if (breakpoint) {
+      res = 58
     }
-    console.log('res :: ', res)
+
+    res = res - ((this.divination.stack.length - 1) * 4)
+    return res
+  }
+
+  bgPosYImage (breakpoint: boolean) {
+    let res: number = 55
+    if (breakpoint) {
+      res = 97
+    }
     return res
   }
 
@@ -308,7 +364,6 @@ export default class ViewPoeDivination extends Vue {
       .then((dataUrl: any) => {
         let img = new Image()
         img.src = dataUrl
-        // document.body.appendChild(img)
         // this.printTitle('Hello')
         download(dataUrl, this.toSlug(this.divination.title) + '.png')
         console.log('saveIMG img ::', img)
@@ -475,11 +530,20 @@ export default class ViewPoeDivination extends Vue {
     @apply min-h-screen flex justify-center items-center text-center mx-auto;
   }
   */
+
+  .cursor-pointer {
+    cursor: pointer;
+  }
+
   @font-face {
     font-family: 'Fontin SmallCaps';
     src: url('/poe/divination/font/Fontin-SmallCaps.ttf');
     font-weight: 400;
     font-style: italic;
+  }
+
+  .poe-title {
+    font-size: 1.25rem;
   }
 
   .v-expansion-panel-content__wrap {
@@ -490,7 +554,19 @@ export default class ViewPoeDivination extends Vue {
     background-size: auto;
     background-position-x: center;
     background-position-y: 55px;
-    max-width: 440px;
+    max-width: 540px;
+  }
+
+  #wrapper-divination-card .lore {
+    width: 300px;
+  }
+
+  .font-size-x-large {
+    font-size: x-large;
+  }
+
+  .font-size-larger {
+    font-size: larger;
   }
 
   input, textarea {
@@ -502,7 +578,7 @@ export default class ViewPoeDivination extends Vue {
     font-family: 'Fontin SmallCaps';
   }
 
-  #frame-divination-card {
+  .frame-divination-card {
     background-image: url('/poe/divination/divination_card_frame.png');
     background-repeat: no-repeat;
     background-position: center;
@@ -523,6 +599,10 @@ export default class ViewPoeDivination extends Vue {
   .item-bench textarea {
     color: #b8905f !important;
     padding: 8px;
+  }
+
+  .hover-item:hover {
+    color: #b8905f;
   }
 
   .item-bench {
