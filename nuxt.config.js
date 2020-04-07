@@ -59,9 +59,6 @@ export default {
         }
       }
     },
-    icons: {
-      iconfont: 'mdi'
-    },
     treeShake: true
   },
   /*

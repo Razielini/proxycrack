@@ -199,9 +199,10 @@
         <button
           type="button"
           class="pa-5"
+          :disabled="createCard"
           @click="saveIMG()"
         >
-          Download Card
+          {{ createCard ? 'Creating Card....' : 'Download Card' }}
         </button>
       </div>
     </v-col>
@@ -262,6 +263,8 @@ export default class ViewPoeDivination extends Vue {
     page: 1,
     itemsPerPage: 9
   }
+
+  createCard: boolean = false
 
   panel: number = 0
 
@@ -360,6 +363,7 @@ export default class ViewPoeDivination extends Vue {
 
   saveIMG () {
     console.log('saveIMG')
+    this.createCard = true
     htmlToImage.toPng(document.getElementById('wrapper-divination-card'))
       .then((dataUrl: any) => {
         let img = new Image()
@@ -370,6 +374,9 @@ export default class ViewPoeDivination extends Vue {
       })
       .catch((error: any) => {
         console.error('oops, something went wrong!', error)
+      })
+      .finally(() => {
+        this.createCard = false
       })
   }
 
