@@ -100,5 +100,8 @@ export default {
   },
   server: {
     port: process.env.BASE_PORT | 4300 // default: 3000
+  },
+  router: {
+    home: '/poe-divination/'
   }
 }

@@ -1,6 +1,5 @@
 <template>
   <v-app>
-    <top-bar />
     <v-content>
       <v-container>
         <nuxt />
@@ -10,12 +9,7 @@
 </template>
 
 <script>
-import TopBar from '@/components/topbar.vue'
-
 export default {
-  components: {
-    TopBar
-  }
 }
 </script>
 
